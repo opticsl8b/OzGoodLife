@@ -12,9 +12,7 @@ const productSchema = new Schema(
     },
     description: {
       type: String,
-      required: true,
-      trim: true,
-      
+      required: true,  
     },
     image: {
       type: String,
@@ -25,13 +23,20 @@ const productSchema = new Schema(
       required: true,
       min: 0.99,
     },
-    size: {
-      type: String,
-      required: true,
-    },
+    // size: {
+    //   type: String,
+    //   required: true,
+    // },
+
     category: {
       type: Array,
     },
+    
+    quantity:{
+      type:Number,
+      required: true,
+      min: 0,
+    }
   },
   {
     timestamps: true,

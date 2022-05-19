@@ -12,11 +12,7 @@ const userSchema = new Schema(
       trim: true,
       unique: true,
     },
-    // lastName: {
-    //   type: String,
-    //   required: true,
-    //   trim: true
-    // },
+    
     email: {
       type: String,
       required: true,
@@ -27,10 +23,11 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
-    },
+
+    // isAdmin: {
+    //   type: Boolean,
+    //   default: false,
+    // },
 
     orders: [Order.schema],
   },
