@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Search } from "@material-ui/icons";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Badge } from "@material-ui/core";
 
 const Container = styled.div`
   height: 60px;
@@ -17,7 +18,6 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-
 `;
 
 const Language = styled.span`
@@ -32,20 +32,29 @@ const SearchContainer = styled.div`
   padding: 5px;
 `;
 
-const Input=styled.input`
+const Input = styled.input`
   border: none;
-`
+`;
 
 const Center = styled.div`
   flex: 1;
   text-align: center;
 `;
 
-const Logo=styled.h1`
+const Logo = styled.h1`
   font-weight: bold;
-`
+`;
 const Right = styled.div`
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const Menuitem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
 `;
 
 const Navbar = () => {
@@ -56,17 +65,23 @@ const Navbar = () => {
           <Language>EN</Language>
           <SearchContainer>
             <Input />
-            <Search />
+            <Search style={{color:"gray",fontSize:16}}/>
           </SearchContainer>
         </Left>
 
         <Center>
-          <Logo>
-            Oz GoodLife.
-          </Logo>
-          </Center>
+          <Logo>Oz GoodLife.</Logo>
+        </Center>
 
-        <Right>right</Right>
+        <Right>
+          <Menuitem>REGISTER</Menuitem>
+          <Menuitem>SIGN IN</Menuitem>
+          <Menuitem>
+            <Badge badgeContent={4} color="primary">
+              <ShoppingCartOutlined />
+            </Badge>
+          </Menuitem>
+        </Right>
       </Wrapper>
     </Container>
   );
