@@ -42,12 +42,12 @@ background-color:white;
 color:gray;
 font-weight:600;`;
 
-const CategoryItem = ({ catData }) => {
+const CategoryItem = ({ item }) => {
   return (
     <Container>
-      <Image src={catData.img} />
+      <Image src={item.img} />
       <Info>
-        <Title>{catData.title}</Title>
+        <Title>{item.title}</Title>
         <Button>Shop Now</Button>
       </Info>
     </Container>
