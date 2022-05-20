@@ -5,21 +5,23 @@ const { Schema } = mongoose;
 const cartSchema = new Schema(
   {
     userID: {
-      type: String,
-      required: true,
+      type: Schema.Types.ObjectId,
+      ref: 'User'
     },
-    products: [
-      {
-        productID: {
-          type: String,
-          required: true,
-        },
-        quantity:{
-            type:Number,
-            default:1,
-        }
-      },
-    ],
+    productscartID: {
+      type: Schema.Types.ObjectId,
+      ref: 'Cart'
+    },
+
+    isFinalised :{
+      type:Boolean,
+    },
+
+    purchasedDate:{
+
+    },
+    
+
   },
   {
     timestamps: true,

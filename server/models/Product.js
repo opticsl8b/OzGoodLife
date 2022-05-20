@@ -27,9 +27,8 @@ const productSchema = new Schema(
     //   type: String,
     //   required: true,
     // },
-
     category: {
-      type: Array,
+      type: String,
     },
     
     quantity:{

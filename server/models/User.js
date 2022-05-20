@@ -29,7 +29,7 @@ const userSchema = new Schema(
     //   default: false,
     // },
 
-    orders: [Order.schema],
+    // orders: [Order.schema],
   },
   { timestamps: true }
 );

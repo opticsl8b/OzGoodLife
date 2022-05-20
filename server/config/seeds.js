@@ -34,40 +34,61 @@ db.once('open', async () => {
       quantity: 10
     },
     {
-      title: 'Kids Zinc',
+      title: 'Kids Fish Oil',
       description:
-        'Zinc 120 Chewable Tablets',
+        'Cod Liver + Fish Oil Kids 90 Capsules',
       image: 'cookie-tin.jpg',
       category: "Bio Island",
       price: 10,
       quantity: 10
     },
+    {
+      title: 'Broad Spectrum Probiotic',
+      description:
+        'Broad Spectrum Probiotic 60 Capsules',
+      image: 'cookie-tin.jpg',
+      category: "Life Space",
+      price: 10,
+      quantity: 10
+    },
+    {
+      title: 'Probiotic For 60+ Years',
+      description:
+        'Probiotic For 60+ Years 60 Capsules',
+      image: 'cookie-tin.jpg',
+      category: "Life Space",
+      price: 10,
+      quantity: 10
+    },
   ]);
 
-  console.log('products seeded');
+  console.log('products seeded🚗🚗');
 
   await User.deleteMany();
 
   await User.create({
-    firstName: 'Pamela',
-    lastName: 'Washington',
-    email: 'pamela@testmail.com',
+    username: 'george',
+    email: 'george@testmail.com',
     password: 'password12345',
     orders: [
       {
-        products: [products[0]._id, products[0]._id, products[1]._id]
+        products: [products[0]._id, products[2]._id, products[1]._id]
       }
     ]
   });
 
-  await User.create({
-    firstName: 'Elijah',
-    lastName: 'Holt',
-    email: 'eholt@testmail.com',
-    password: 'password12345'
-  });
+  // await User.create({
+  //   username: 'nina',
+  //   email: 'nina@testmail.com',
+  //   password: 'password12345',
+  //   orders: [
+  //     {
+  //       products: [products[4]._id, products[3]._id, products[5]._id]
+  //     }
+  //   ]
+  // });
 
-  console.log('users seeded');
+  // console.log('users seeded');
 
   process.exit();
 });

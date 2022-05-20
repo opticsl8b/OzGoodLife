@@ -5,24 +5,19 @@ const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 const resolvers = {
   Query: {
-    
-    products: async (parent, { category, name }) => {
+    products: async (parent, { title }) => {
       const params = {};
 
-      if (category) {
-        params.category = category;
-      }
-
-      if (name) {
-        params.name = {
-          $regex: name,
+      if (title) {
+        params.title = {
+          $regex: title,
         };
       }
-      return await Product.find(params).populate("category");
+      return await Product.find(params);
     },
 
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate("category");
+      return await Product.findById(_id);
     },
 
     user: async (parent, args, context) => {
@@ -51,53 +46,54 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    // This will give us the base domain that the request came from.
-    // Locally, that would be http://localhost:3001,
-    // since the GraphQL Playground is running on port 3001.
-    checkout: async (parent, args, context) => {
-      const url = new URL(context.headers.referer).origin;
 
-      console.log(url)
+    // // This will give us the base domain that the request came from.
+    // // Locally, that would be http://localhost:3001,
+    // // since the GraphQL Playground is running on port 3001.
+    // checkout: async (parent, args, context) => {
+    //   const url = new URL(context.headers.referer).origin;
 
-      const order = new Order({ products: args.products });
-      const { products } = await order.populate("products").execPopulate();
-      const line_items = [];
+    //   console.log(url);
 
-      for (let i = 0; i < products.length; i++) {
-        // generate product id
-        const product = await stripe.products.create({
-          name: products[i].name,
-          description: products[i].description,
-          // These image thumbnails won't display on the Stripe checkout page
-          // when testing locally, because Stripe can't download images
-          // that are being served from your personal computer's localhost.
-          // You will only see these images when you deploy the app to Heroku.
-          images: [`${url}/images/${products[i].image}`],
-        });
+    //   const order = new Order({ products: args.products });
+    //   const { products } = await order.populate("products").execPopulate();
+    //   const line_items = [];
 
-        // generate price id using the product id
-        const price = await stripe.prices.create({
-          product: product.id,
-          unit_amount: products[i].price * 100,
-          currency: "usd",
-        });
+    //   for (let i = 0; i < products.length; i++) {
+    //     // generate product id
+    //     const product = await stripe.products.create({
+    //       name: products[i].name,
+    //       description: products[i].description,
+    //       // These image thumbnails won't display on the Stripe checkout page
+    //       // when testing locally, because Stripe can't download images
+    //       // that are being served from your personal computer's localhost.
+    //       // You will only see these images when you deploy the app to Heroku.
+    //       images: [`${url}/images/${products[i].image}`],
+    //     });
 
-        // add price id to the line items array
-        line_items.push({
-          price: price.id,
-          quantity: 1,
-        });
-      }
-      const session = await stripe.checkout.sessions.create({
-        payment_method_types: ["card"],
-        line_items,
-        mode: "payment",
-        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${url}/`,
-      });
+    //     // generate price id using the product id
+    //     const price = await stripe.prices.create({
+    //       product: product.id,
+    //       unit_amount: products[i].price * 100,
+    //       currency: "usd",
+    //     });
 
-      return { session: session.id };
-    },
+    //     // add price id to the line items array
+    //     line_items.push({
+    //       price: price.id,
+    //       quantity: 1,
+    //     });
+    //   }
+    //   const session = await stripe.checkout.sessions.create({
+    //     payment_method_types: ["card"],
+    //     line_items,
+    //     mode: "payment",
+    //     success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+    //     cancel_url: `${url}/`,
+    //   });
+
+    //   return { session: session.id };
+    // },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -106,6 +102,7 @@ const resolvers = {
 
       return { token, user };
     },
+    
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
