@@ -75,7 +75,7 @@ const ContactItem = styled.div`
   align-items: center;
 `;
 
-const Payment = styled.div`
+const Payment = styled.img`
 width: 50%;
 `;
 
