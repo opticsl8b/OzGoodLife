@@ -1,10 +1,3 @@
-import Product from "./pages/Product";
-import Home from "./pages/Home";
-import ProductList from "./pages/ProductList";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
-import Cart from "./pages/Cart";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   ApolloClient,
@@ -14,6 +7,14 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
+import { StoreProvider } from "./utils/GlobalState";
+
+import Product from "./pages/Product";
+import Home from "./pages/Home";
+import ProductList from "./pages/ProductList";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Cart from "./pages/Cart";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,16 +38,18 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/products/:id" element={<Product />} />
-            <Route path="/products/:category" element={<ProductList />} />
-            <Route path="/cart" element={<Cart />} />
-          </Routes>
-        
+        <div>
+          <StoreProvider>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/products/:id" element={<Product />} />
+              <Route path="/products/:category" element={<ProductList />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </StoreProvider>
+        </div>
       </Router>
     </ApolloProvider>
   );

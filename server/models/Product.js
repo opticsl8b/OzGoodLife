@@ -12,7 +12,7 @@ const productSchema = new Schema(
     },
     description: {
       type: String,
-      required: true,  
+      required: true,
     },
     image: {
       type: String,
@@ -21,21 +21,23 @@ const productSchema = new Schema(
     price: {
       type: Number,
       required: true,
-      min: 0.99,
+      min: 1,
     },
     // size: {
     //   type: String,
     //   required: true,
     // },
     category: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "Category",
+      required: true,
     },
-    
-    quantity:{
-      type:Number,
+
+    quantity: {
+      type: Number,
       required: true,
       min: 0,
-    }
+    },
   },
   {
     timestamps: true,

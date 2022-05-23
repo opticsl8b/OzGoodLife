@@ -8,20 +8,17 @@ const cartSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User'
     },
-    productscartID: {
-      type: Schema.Types.ObjectId,
-      ref: 'Cart'
-    },
-
-    isFinalised :{
-      type:Boolean,
-    },
-
-    purchasedDate:{
-
-    },
-    
-
+    products: [
+      {
+        productId: {
+          type: String,
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+        },
+      },
+    ],
   },
   {
     timestamps: true,

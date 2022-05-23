@@ -20,6 +20,10 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
 
+    categories: async () => {
+      return await Category.find();
+    },
+
     products: async (parent, { title }) => {
       const params = {};
 
@@ -101,7 +105,7 @@ const resolvers = {
       const user = await User.findOne({ email });
 
       if (!user) {
-        throw new AuthenticationError("Please SIGN UP First");
+        throw new AuthenticationError("Cannot find user with email: " + email);
       }
 
       const correctPw = await user.isCorrectPassword(password);

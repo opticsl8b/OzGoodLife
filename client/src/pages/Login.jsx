@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { mobile } from "../responsive";
 import { useState } from "react";
-// import {Link} from 'react-router-dom'
 import { useMutation } from "@apollo/client";
-import { LOGIN_USER } from "../utils/mutations";
+import styled from "styled-components";
+// import {Link} from 'react-router-dom'
 
 import Auth from "../utils/auth";
+import { mobile } from "../responsive";
+import { LOGIN } from "../utils/mutations";
 
 const Container = styled.div`
   width: 100vw;
@@ -55,20 +55,25 @@ const Button = styled.button`
   margin-bottom: 5px;
 `;
 
-const Link = styled.a`
-  margin: 5px 0;
-  font-size: 12px;
-  text-decoration: underline;
-  cursor: pointer;
-`;
+// const Link = styled.a`
+//   margin: 5px 0;
+//   font-size: 12px;
+//   text-decoration: underline;
+//   cursor: pointer;
+// `;
 
 const P = styled.p`
   font-size: 16px;
 `;
 
-const Login = () => {
+const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN, {
+    variables: {
+      email: formState.email,
+      password: formState.password,
+    },
+  });
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -124,10 +129,9 @@ const Login = () => {
               onChange={handleChange}
             />
             <Button type="submit">LOGIN</Button>
-            
+
             {/* <Link>Forget Password</Link>
             <Link>Create A New Account</Link> */}
-          
           </Form>
         )}
         {error && <Title>{error.message}</Title>}

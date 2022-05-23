@@ -1,13 +1,12 @@
-import styled from "styled-components";
-import { mobile } from "../responsive";
-
-import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
-import { ADD_USER } from "../utils/mutations";
 import { useState } from "react";
-
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../utils/mutations";
 // For adding link direct back to login page
 // import { Link } from "react-router-dom";
+
+import Auth from "../utils/auth";
+import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100vw;
@@ -46,10 +45,10 @@ const Input = styled.input`
   padding: 10px;
 `;
 
-const Agreement = styled.span`
-  font-size: 12px;
-  margin: 20px 0px;
-`;
+// const Agreement = styled.span`
+//   font-size: 12px;
+//   margin: 20px 0px;
+// `;
 
 const Button = styled.button`
   width: 40%;
@@ -70,7 +69,9 @@ const Register = () => {
     email: "",
     password: "",
   });
-  const [addUser, { error, data }] = useMutation(ADD_USER);
+  const [addUser, { error, data }] = useMutation(ADD_USER, {
+    variables: { ...formState },
+  });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
