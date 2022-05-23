@@ -14,8 +14,6 @@ import {
 } from "@apollo/client";
 
 import { setContext } from "@apollo/client/link/context";
-import { useSelector } from "react-redux";
-import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -36,22 +34,19 @@ const client = new ApolloClient({
 });
 
 const App = () => {
-  const user = useSelector((state) => state.user.currentUser);
-
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/success" element={<Success />} />
             <Route path="/products/:id" element={<Product />} />
-            <Route path="/products/:category" element={<Product />} />
+            <Route path="/products/:category" element={<ProductList />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
-        </div>
+        
       </Router>
     </ApolloProvider>
   );

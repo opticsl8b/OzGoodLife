@@ -6,7 +6,7 @@ import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import { useState } from "react";
 
-// For adding link direct back to login page 
+// For adding link direct back to login page
 // import { Link } from "react-router-dom";
 
 const Container = styled.div`
@@ -60,45 +60,80 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const Register = (props) => {
-  const [formState, setFormState] = useState({ email: "", password: "" });
-  const [addUser] = useMutation(ADD_USER);
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    const mutationResponse = await addUser({
-      variables: {
-        email: formState.email,
-        password: formState.password,
-        username: formState.username,
-      },
-    });
-    const token = mutationResponse.data.addUser.token;
-    Auth.login(token);
-  };
+const P = styled.p`
+  font-size: 16px;
+`;
+
+const Register = () => {
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
+
     setFormState({
       ...formState,
       [name]: value,
     });
   };
 
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   return (
     <Container>
       <Wrapper>
         <Title>Create An Account</Title>
-        <Form onSubmit={handleFormSubmit}>
-          <Input placeholder="username" onChange={handleChange} />
-          <Input placeholder="email" onChange={handleChange} />
-          <Input placeholder="password" onChange={handleChange} />
-          <Input placeholder="confirm password" onChange={handleChange} />
-          <Agreement>
-            By creating an account,I consent to the processing of my personal
-            data in accordance with the <b>PRIVACY POLICY</b>
-          </Agreement>
-          <Button type="submit">CREATE</Button>
-        </Form>
+        {data ? (
+          <P>Account Create Success! Happy Shopping</P>
+        ) : (
+          <Form onSubmit={handleFormSubmit}>
+            <Input
+              placeholder="username"
+              name="username"
+              type="text"
+              value={formState.name}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="email"
+              name="email"
+              type="email"
+              value={formState.email}
+              onChange={handleChange}
+            />
+            <Input
+              placeholder="password"
+              name="password"
+              type="password"
+              value={formState.password}
+              onChange={handleChange}
+            />
+            {/* <Input placeholder="confirm password" onChange={handleChange} /> */}
+            {/* <Agreement>
+              By creating an account,I consent to the processing of my personal
+              data in accordance with the <b>PRIVACY POLICY</b>
+            </Agreement> */}
+            <Button type="submit">CREATE</Button>
+          </Form>
+        )}
+        {error && <Title>{error.message}</Title>}
       </Wrapper>
     </Container>
   );

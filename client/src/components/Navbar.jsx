@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import { Badge } from "@material-ui/core";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   height: 60px;
@@ -49,23 +50,20 @@ const Center = styled.div`
 const Logo = styled.h1`
   font-weight: bold;
   ${mobile({ fontSize: "16px" })}
-
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  ${mobile({ flex:2,justifyContent: "Center" })}
-
+  ${mobile({ flex: 2, justifyContent: "Center" })}
 `;
 
 const Menuitem = styled.div`
   font-size: 14px;
   cursor: pointer;
   margin-left: 25px;
-  ${mobile({ fontSize: "12px" ,marginLeft:"10px"})}
-
+  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
 const Navbar = () => {
@@ -75,7 +73,7 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input placeholder="search"/>
+            <Input placeholder="search" />
             <Search style={{ color: "gray", fontSize: 16 }} />
           </SearchContainer>
         </Left>
@@ -85,8 +83,12 @@ const Navbar = () => {
         </Center>
 
         <Right>
-          <Menuitem>REGISTER</Menuitem>
-          <Menuitem>SIGN IN</Menuitem>
+          <Link to="/register">
+            <Menuitem>REGISTER</Menuitem>
+          </Link>
+          <Link to="/Login">
+            <Menuitem>LOGIN</Menuitem>
+          </Link>
           <Menuitem>
             <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined />

@@ -17,7 +17,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      match: [/.+@.+\..+/, 'Must match an email address!'],
     },
+
     password: {
       type: String,
       required: true,
@@ -42,6 +44,7 @@ userSchema.pre("save", async function (next) {
   }
 
   next();
+
 });
 
 // compare the incoming password with the hashed password
