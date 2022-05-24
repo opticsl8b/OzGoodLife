@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
-import { sliderItems } from "../slideData";
-import { mobile } from "../responsive";
+import { sliderItems } from "../utils/slideData";
+import { mobile } from "../utils/responsive";
 
 const Container = styled.div`
   widows: 100%;
@@ -12,7 +12,6 @@ const Container = styled.div`
   position: relative;
   overflow: hidden;
   ${mobile({ display: "none" })}
-
 `;
 
 const Arrow = styled.div`
@@ -75,7 +74,8 @@ const Desc = styled.p`
   letter-spacing: 3px;
 `;
 
-const Button = styled.button`
+const Button = styled.a`
+  border: 1px solid gray;
   padding: 10px;
   font-size: 20px;
   background-color: transparent;
@@ -110,7 +110,7 @@ const Slider = () => {
             <InfoContainer>
               <Title>{slideData.title}</Title>
               <Desc>{slideData.desc}</Desc>
-              <Button>Shop Now</Button>
+              <Button href="#category">Shop Now</Button>
             </InfoContainer>
           </Slide>
         ))}
