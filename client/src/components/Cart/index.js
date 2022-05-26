@@ -10,12 +10,13 @@ import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from "../../utils/actions";
 import "./style.css";
 import { AddShoppingCart } from "@material-ui/icons";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
 const Container = styled.div`
   position: fixed;
-  top: 0;
+  bottom: 0;
   right: 0;
   min-width: 20%;
   max-width: 30%;
@@ -23,38 +24,62 @@ const Container = styled.div`
   background-color: #fafafa;
   overflow: auto;
   padding: 0.5rem;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 0.5rem;
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  border-bottom: 1px solid #272f32;
-  padding-bottom: 8px;
-  margin: 16px 0;
 `;
 
 const Close = styled.div`
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 18px;
+  right: 6px;
   cursor: pointer;
   color: black;
+  font-size: 24px;
+  font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 24px;
+  border-bottom: 2px solid gray;
+  padding-bottom: 8px;
+  margin: 10px 0;
 `;
 
 const CartDetail = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-top: 2px solid gray; ;
 `;
 
-const CartSum = styled.strong``;
+const CartSum = styled.strong`
+  font-size: 24px;
+  margin: 12px 12px 0 12px;
+`;
 // const Container = styled.div``;
 
-const CartIcon = styled.span`
-  border: 2px solid teal;
-  padding: 10px;
+const CartClosed = styled.div`
+  position: fixed;
+  bottom: 4%;
+  right: 3%;
+  font-size: 40px;
+  cursor: pointer;
+  background-color: whitesmoke;
   border-radius: 50%;
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+
+  :hover {
+    transition: all 2s;
+    transform: rotate(-360deg);
+  }
+`;
+
+const CartIcon = styled.div`
   background-color: white;
   display: flex;
   justify-content: center;
@@ -121,17 +146,26 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <div className="cart-closed" onClick={toggleCart}>
-        <CartIcon role="img" aria-label="trash">
-          <AddShoppingCart style={{ fontSize: 30 }} />
+      <CartClosed className="cart-closed" onClick={toggleCart}>
+        <CartIcon>
+          <AddShoppingCart
+            style={{
+              fontSize: "45px",
+              padding: "10px",
+              border: "3px solid teal",
+              borderRadius: "50%",
+              color: "teal",
+              boxShodow: "20px 20px 20px 10px black",
+            }}
+          />
         </CartIcon>
-      </div>
+      </CartClosed>
     );
   }
 
   return (
     <Container>
-      <Close onClick={toggleCart}>[close]</Close>
+      <Close onClick={toggleCart}>[X]</Close>
       <Title>Shopping Cart</Title>
       {state.cart.length ? (
         <div>
@@ -139,13 +173,24 @@ const Cart = () => {
             <CartItem key={item._id} item={item} />
           ))}
 
-          <CartDetail className="flex-row space-between">
-            <CartSum>Total: ${calculateTotal()}</CartSum>
+          <CartDetail>
+            <CartSum>Total: $ {calculateTotal()}</CartSum>
 
             {Auth.loggedIn() ? (
               <Button onClick={submitCheckout}>Checkout</Button>
             ) : (
-              <span>(log in to check out)</span>
+              <Link
+                to="/login"
+                style={{
+                  textDecoration: "none",
+                  color: "black",
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  marginTop: "16px",
+                }}
+              >
+                <b>(log in to check out)</b>
+              </Link>
             )}
           </CartDetail>
         </div>
