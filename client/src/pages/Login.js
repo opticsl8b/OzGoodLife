@@ -66,13 +66,6 @@ const Button = styled.button`
   margin: 5px 0;
 `;
 
-// const Link = styled.a`
-//   margin: 5px 0;
-//   font-size: 12px;
-//   text-decoration: underline;
-//   cursor: pointer;
-// `;
-
 const P = styled.p`
   font-size: 16px;
 `;

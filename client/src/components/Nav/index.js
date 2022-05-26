@@ -23,23 +23,23 @@ const Left = styled.div`
   align-items: center;
 `;
 
-const Language = styled.span`
-  font-size: 14px;
-  ${mobile({ display: "none" })}
-`;
+// const Language = styled.span`
+//   font-size: 14px;
+//   ${mobile({ display: "none" })}
+// `;
 
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-`;
+// const SearchContainer = styled.div`
+//   border: 0.5px solid lightgray;
+//   display: flex;
+//   align-items: center;
+//   margin-left: 25px;
+//   padding: 5px;
+// `;
 
-const Input = styled.input`
-  border: none;
-  ${mobile({ width: "50px" })}
-`;
+// const Input = styled.input`
+//   border: none;
+//   ${mobile({ width: "50px" })}
+// `;
 
 const Center = styled.div`
   flex: 1;
@@ -65,18 +65,56 @@ const List = styled.ul`
   list-style: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: space-between;
+  justify-content: center;
+  align-items: flex-end;
 `;
 
 const ListItem = styled.li`
   width: 50%;
-  margin: 0px 20px;
+
   color: black;
+
+  display: flex;
+`;
+
+const Button = styled.button`
+  width: 120px;
+  border: 1px solid teal;
+  background: none;
+  padding: 5px 15px;
+  font-size: 12px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  color: teal;
+
+  &:hover {
+    color: white;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: teal;
+    z-index: -1;
+    transition: 1.5s;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+  }
+
+  &:hover::before {
+    height: 180%;
+  }
 `;
 
 const ListLink = styled.a`
   color: black;
+  text-decoration: "none";
 `;
 
 // const Menuitem = styled.div`
@@ -92,13 +130,19 @@ function Nav() {
       return (
         <List>
           <ListItem>
-            <Link to="/orderHistory">Order History</Link>
+            <Link to="/orderHistory" style={{ textDecoration: "none" }}>
+              <Button>Order History</Button>
+            </Link>
           </ListItem>
           <ListItem>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <ListLink href="/" onClick={() => Auth.logout()}>
-              Logout
-            </ListLink>
+            <Link
+              to="/"
+              onClick={() => Auth.logout()}
+              style={{ textDecoration: "none" }}
+            >
+              <Button>Log Out</Button>
+            </Link>
           </ListItem>
         </List>
       );
@@ -106,10 +150,14 @@ function Nav() {
       return (
         <List>
           <ListItem>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <Button>Signup</Button>
+            </Link>
           </ListItem>
           <ListItem>
-            <Link to="/login">Login</Link>
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <Button>Login</Button>
+            </Link>
           </ListItem>
         </List>
       );
