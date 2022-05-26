@@ -14,53 +14,6 @@ import { Link } from "react-router-dom";
 
 const stripePromise = loadStripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
 
-const Container = styled.div`
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  min-width: 20%;
-  max-width: 30%;
-  max-height: 60%;
-  background-color: #fafafa;
-  overflow: auto;
-  padding: 0.5rem;
-  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
-  border-bottom-left-radius: 0.5rem;
-`;
-
-const Close = styled.div`
-  position: absolute;
-  top: 18px;
-  right: 6px;
-  cursor: pointer;
-  color: black;
-  font-size: 24px;
-  font-weight: 700;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-
-const Title = styled.h2`
-  font-size: 24px;
-  border-bottom: 2px solid gray;
-  padding-bottom: 8px;
-  margin: 10px 0;
-`;
-
-const CartDetail = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-top: 2px solid gray; ;
-`;
-
-const CartSum = styled.strong`
-  font-size: 24px;
-  margin: 12px 12px 0 12px;
-`;
-// const Container = styled.div``;
-
 const CartClosed = styled.div`
   position: fixed;
   bottom: 4%;
@@ -84,6 +37,54 @@ const CartIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Container = styled.div`
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  min-width: 20%;
+  max-width: 30%;
+  max-height: 60%;
+  background-color: #fafafa;
+  overflow: auto;
+  padding: 4px;
+  box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
+  border-top-left-radius: 8px;
+  z-index: 3;
+`;
+
+const Close = styled.div`
+  position: absolute;
+  top: 12px;
+  right: 6px;
+  cursor: pointer;
+  color: black;
+  font-size: 24px;
+  font-weight: 700;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+const Title = styled.h2`
+  font-size: 24px;
+  border-bottom: 2px solid gray;
+  padding-bottom: 8px;
+  margin: 10px 0;
+  padding-left: 12px;
+`;
+
+const CartDetail = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 2px solid gray; ;
+`;
+
+const CartSum = styled.strong`
+  font-size: 24px;
+  margin: 12px 12px 0 12px;
 `;
 
 const Button = styled.button`

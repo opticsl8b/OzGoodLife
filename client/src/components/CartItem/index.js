@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-const ImageItem = styled.div`
+const Left = styled.div`
   flex: 1;
 `;
 
@@ -18,46 +18,43 @@ const Image = styled.img`
   max-width: 100%;
 `;
 
-const ItemDetails = styled.div`
-  flex: 2;
+const Center = styled.div`
+  flex: 1;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
   flex-direction: column;
-  padding-right: 15%;
-`;
-
-const NameNPrice = styled.div`
-  display: flex;
-  flex-direction: row;
   justify-content: space-around;
 `;
 
 const NameItem = styled.h3`
-  flex: 2;
-  font-size: 20px;
+  font-size: 16px;
+  padding-top: 8px;
 `;
 
-const PriceItem = styled.span`
-  flex: 1;
-  font-size: 15px;
+const PriceItem = styled.b`
+  font-size: 16px;
   color: gray;
+  text-align: left;
 `;
 
-const QtyNAction = styled.div`
-  /* border: 1px solid black; */
+const Right = styled.div`
+  flex: 1;
   display: flex;
-  justify-content: flex-end;
-  margin: 10px;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: row;
+  padding-bottom: 20px;
 `;
 
 const Qty = styled.span`
-  font-size: 15px;
+  font-size: 16px;
 `;
 const Input = styled.input`
-  border: none;
-  width: 20%;
+  border: 1px solid lightgray;
+  width: 60%;
   text-align: center;
+  margin: 0 5%;
+  font-weight: 700;
+  font-size: 16px;
 `;
 
 const CartItem = ({ item }) => {
@@ -90,30 +87,31 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <Container className="flex-row">
-      <ImageItem>
+    <Container>
+      <Left>
         <Image src={`/images/${item.image}`} alt="" />
-      </ImageItem>
-      <ItemDetails>
-        <NameNPrice>
-          <NameItem>{item.name}</NameItem>
-          <PriceItem>${item.price}</PriceItem>
-        </NameNPrice>
-        <QtyNAction>
-          <Qty>Qty:</Qty>
-          <Input
-            type="number"
-            placeholder="1"
-            value={item.purchaseQuantity}
-            onChange={onChange}
-          />
-          <DeleteForeverOutlined
-            role="img"
-            aria-label="trash"
-            onClick={() => removeFromCart(item)}
-          />
-        </QtyNAction>
-      </ItemDetails>
+      </Left>
+      <Center>
+        <NameItem>{item.name}</NameItem>
+        <PriceItem>${item.price} /ea</PriceItem>
+      </Center>
+      <Right>
+        <Qty>Qty:</Qty>
+        <Input
+          type="number"
+          placeholder="1"
+          value={item.purchaseQuantity}
+          onChange={onChange}
+        />
+
+        <DeleteForeverOutlined
+          onClick={() => removeFromCart(item)}
+          style={{
+            fontSize: "30px",
+            color: "teal",
+          }}
+        />
+      </Right>
     </Container>
   );
 };
