@@ -54,7 +54,7 @@ const Input = styled.input`
   text-align: center;
   margin: 0 5%;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 const CartItem = ({ item }) => {
