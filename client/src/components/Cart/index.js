@@ -20,7 +20,7 @@ const CartClosed = styled.div`
   right: 3%;
   font-size: 40px;
   cursor: pointer;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 50%;
   padding: 10px;
   width: 50px;
@@ -33,7 +33,7 @@ const CartClosed = styled.div`
 `;
 
 const CartIcon = styled.div`
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,7 +67,7 @@ const Close = styled.div`
   }
 `;
 
-const Title = styled.h2`
+const Title = styled.p`
   font-size: 24px;
   border-bottom: 2px solid gray;
   padding-bottom: 8px;
@@ -94,6 +94,10 @@ const Button = styled.button`
   background-color: Gray;
   color: White;
   font-weight: 600;
+`;
+
+const EmptyText = styled.p`
+  font-size: 20px;
 `;
 
 const Cart = () => {
@@ -196,12 +200,9 @@ const Cart = () => {
           </CartDetail>
         </div>
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+        <EmptyText>
+          🤷‍♀️🤷‍♂️ You haven't added anything to your cart yet!🤷‍♀️🤷‍♂
+        </EmptyText>
       )}
     </Container>
   );

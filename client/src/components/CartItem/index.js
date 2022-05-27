@@ -18,35 +18,31 @@ const Image = styled.img`
   max-width: 100%;
 `;
 
-const Center = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-`;
-
 const NameItem = styled.h3`
   font-size: 16px;
   padding-top: 8px;
 `;
 
-const PriceItem = styled.b`
+const PriceItem = styled.p`
   font-size: 16px;
-  color: gray;
+  color: teal;
   text-align: left;
+  flex: 1;
+  padding: 2px;
 `;
 
 const Right = styled.div`
-  flex: 1;
+  flex: 2;
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  flex-direction: row;
+
+  flex-direction: column;
   padding-bottom: 20px;
 `;
 
-const Qty = styled.span`
+const Qty = styled.p`
+  flex: 1;
   font-size: 16px;
+  color: teal;
 `;
 const Input = styled.input`
   border: 1px solid lightgray;
@@ -55,6 +51,26 @@ const Input = styled.input`
   margin: 0 5%;
   font-weight: 700;
   font-size: 18px;
+  flex: 2;
+  color: teal;
+`;
+
+const Top = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+`;
+const Bottom = styled.div`
+  flex: 1;
+
+  display: flex;
+  align-items: flex-end;
+`;
+const QtyItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
 `;
 
 const CartItem = ({ item }) => {
@@ -91,26 +107,31 @@ const CartItem = ({ item }) => {
       <Left>
         <Image src={`/images/${item.image}`} alt="" />
       </Left>
-      <Center>
-        <NameItem>{item.name}</NameItem>
-        <PriceItem>${item.price} /ea</PriceItem>
-      </Center>
-      <Right>
-        <Qty>Qty:</Qty>
-        <Input
-          type="number"
-          placeholder="1"
-          value={item.purchaseQuantity}
-          onChange={onChange}
-        />
 
-        <DeleteForeverOutlined
-          onClick={() => removeFromCart(item)}
-          style={{
-            fontSize: "30px",
-            color: "teal",
-          }}
-        />
+      <Right>
+        <Top>
+          <NameItem>{item.name}</NameItem>
+        </Top>
+        <Bottom>
+          <PriceItem>${item.price} /ea</PriceItem>
+          <QtyItem>
+            <Qty>Qty:</Qty>
+            <Input
+              type="number"
+              placeholder="1"
+              value={item.purchaseQuantity}
+              onChange={onChange}
+            />
+            <DeleteForeverOutlined
+              onClick={() => removeFromCart(item)}
+              style={{
+                flex: "1",
+                fontSize: "30px",
+                color: "teal",
+              }}
+            />
+          </QtyItem>
+        </Bottom>
       </Right>
     </Container>
   );
