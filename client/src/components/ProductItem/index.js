@@ -66,6 +66,19 @@ function ProductItem(item) {
       </ProductDetails>
       <Button onClick={addToCart}>Add to cart</Button>
     </Container>
+
+    // <Container>
+    //   <Card>
+    //     <ImageBox>
+    //       <Img/>
+    //     </ImageBox>
+    //     <ContentBox>
+    //       <TitleH2></TitleH2>
+    //       <Desc></Desc>
+    //       <Button onClick={addToCart}>Add to cart</Button>
+    //     </ContentBox>
+    //   </Card>
+    // </Container>
   );
 }
 
