@@ -79,21 +79,48 @@ const CartDetail = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 2px solid gray; ;
+  border-top: 2px solid gray;
+  align-items: center;
 `;
 
 const CartSum = styled.strong`
   font-size: 24px;
-  margin: 12px 12px 0 12px;
+  margin-left: 20px;
 `;
 
 const Button = styled.button`
-  border: 1.5px solid gray;
-  padding: 10px;
+  border: 1px solid teal;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+
   cursor: pointer;
-  background-color: Gray;
-  color: White;
-  font-weight: 600;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  &:hover {
+    color: teal;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: teal;
+    z-index: -1;
+    transition: 0.8s;
+
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    height: 180%;
+  }
+  &:hover::before {
+    height: 0%;
+  }
 `;
 
 const EmptyText = styled.p`
