@@ -49,6 +49,7 @@ function CategoryMenu() {
     margin: 3px;
     height: 30vh;
     position: relative;
+    align-self: center;
   `;
 
   const Image = styled.img`
@@ -69,6 +70,7 @@ function CategoryMenu() {
 
   const Button = styled.button`
     border: 1px solid teal;
+    border-radius: 4px;
     background: none;
     padding: 10px 20px;
     font-size: 20px;

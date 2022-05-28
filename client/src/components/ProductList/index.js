@@ -6,6 +6,23 @@ import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
+import styled from "styled-components";
+
+const Container = styled.div`
+  flex: 1;
+  display: flex;
+
+  min-height: 100vh;
+  width: 100%;
+`;
+
+const ProductCard = styled.div`
+  margin: 8px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`;
 
 function ProductList() {
   const [state, dispatch] = useStoreContext();
@@ -44,10 +61,11 @@ function ProductList() {
   }
 
   return (
-    <div className="my-2">
-      <h2>Our Products:</h2>
+    <Container>
+      {/* <h2>Our Products:</h2> */}
+
       {state.products.length ? (
-        <div className="flex-row">
+        <ProductCard>
           {filterProducts().map((product) => (
             <ProductItem
               key={product._id}
@@ -58,12 +76,12 @@ function ProductList() {
               quantity={product.quantity}
             />
           ))}
-        </div>
+        </ProductCard>
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
       {loading ? <img src={spinner} alt="loading" /> : null}
-    </div>
+    </Container>
   );
 }
 

@@ -51,7 +51,7 @@ const Container = styled.div`
   padding: 4px;
   box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
   border-top-left-radius: 8px;
-  z-index: 3;
+  z-index: 20;
 `;
 
 const Close = styled.div`
