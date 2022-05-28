@@ -1,19 +1,20 @@
 ## Description
 
 <hr><hr><br>
-<h3 align="center">-- Text-Editor --</h3>
+<h3 align="center">-- MERN Stack E-Commerce Application --</h3>
 <br>
 
 <p align="center">
-<img src="https://i.imgur.com/w9USwxb.png" title="source: imgur.com" alt="Text-Editor Preview"/>
+<img src="https://i.imgur.com/gReL6Ar.png" title="source: imgur.com" alt="MERN Stack E-Commerce Application Preview"/>
 </p>
 
 <br>
 <p align="center">
 
 ```
-The app will be a single-page application that meets the PWA criteria. Additionally, it will feature a number of data persistence techniques that serve as redundancy in case one of the options is not supported by the browser. The application will also function offline.
+This is a MERN stack project that features on online store that allows a user to save items to their cart, checkout, and view all item descriptions. The whole site functions whether they have an internet connection or not.
 ```
+
 </p>
 <br>
 
@@ -25,7 +26,7 @@ The app will be a single-page application that meets the PWA criteria. Additiona
 <p align="center">
 
 ```
-To install this app simply run the command "npm i"  in the terminal.
+To install this app simply run the command "npm i" on the root directory level  in the terminal.
 ```
 </p><br><hr><hr>
 

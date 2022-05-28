@@ -6,7 +6,7 @@ import { mobile } from "../utils/responsive";
 
 const Container = styled.div`
   widows: 100%;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   /* background-color: coral; */
   position: relative;

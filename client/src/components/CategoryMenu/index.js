@@ -50,6 +50,7 @@ function CategoryMenu() {
     height: 20vh;
     position: relative;
     align-self: center;
+    margin-left: 4%;
   `;
 
   const Image = styled.img`
