@@ -47,7 +47,7 @@ function CategoryMenu() {
   const Container = styled.div`
     flex: 1;
     margin: 3px;
-    height: 30vh;
+    height: 20vh;
     position: relative;
     align-self: center;
   `;

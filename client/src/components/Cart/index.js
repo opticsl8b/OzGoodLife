@@ -20,7 +20,7 @@ const CartClosed = styled.div`
   right: 3%;
   font-size: 40px;
   cursor: pointer;
-  background-color: white;
+  background-color: none;
   border-radius: 50%;
   padding: 10px;
   width: 50px;
@@ -178,7 +178,7 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <CartClosed className="cart-closed" onClick={toggleCart}>
+      <CartClosed onClick={toggleCart}>
         <CartIcon>
           <AddShoppingCart
             style={{

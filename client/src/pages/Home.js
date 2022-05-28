@@ -4,6 +4,7 @@ import CategoryMenu from "../components/CategoryMenu";
 import Cart from "../components/Cart";
 import Annoucement from "../components/Annoucement";
 import Slider from "../components/Slider";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <CategoryMenu />
       <ProductList />
       <Cart />
+      <Footer />
     </div>
   );
 };

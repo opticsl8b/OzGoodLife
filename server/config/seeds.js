@@ -20,7 +20,7 @@ db.once("open", async () => {
       description: "Omega Triple High Strength Fish Oil 150 Capsules",
       image: "Fish-oil.png",
       category: categories[0]._id,
-      price: 15,
+      price: 28,
       quantity: 500,
     },
     {
@@ -28,7 +28,7 @@ db.once("open", async () => {
       description: "Executive B Vitamin B Stress Support 62 Tablets",
       image: "Vitamin-B.png",
       category: categories[0]._id,
-      price: 10,
+      price: 17,
       quantity: 500,
     },
     {
@@ -44,7 +44,7 @@ db.once("open", async () => {
       category: categories[1]._id,
       description: "Cod Liver + Fish Oil Kids 90 Capsules",
       image: "Kids-Fish-Oil.png",
-      price: 14,
+      price: 19,
       quantity: 100,
     },
     {
@@ -60,7 +60,7 @@ db.once("open", async () => {
       category: categories[2]._id,
       description: "Probiotic For 60+ Years 60 Capsules",
       image: "60+Probiotic.png",
-      price: 199.99,
+      price: 24,
       quantity: 30,
     },
   ]);
