@@ -26,7 +26,7 @@ This is a MERN stack project that features on online store that allows a user to
 <p align="center">
 
 ```
-To install this app simply run the command "npm i" on the root directory level  in the terminal.
+To install this app simply open the terminal ,run the command "npm i" on the root level directory.
 ```
 </p><br><hr><hr>
 
@@ -36,14 +36,14 @@ To install this app simply run the command "npm i" on the root directory level  
 <br>
 
 <p align="center">
-<img src="https://i.imgur.com/vP3hsUY.gif" title="source: imgur.com" alt="Text-Editor Usage"/>
+<img src="https://i.imgur.com/KE7mz9c.gif" title="source: imgur.com" alt="MERN app Usage"/>
 </p><br>
 
 
 <p align="center">
 
 ```
-Open the terminal and run the command "npm start"
+Open the terminal and run the command "npm run develop" on the root level directory.
 ```
 </p>
 
@@ -57,30 +57,34 @@ Open the terminal and run the command "npm start"
 <hr>
 
 <br>
-<h3 align="center">- IndexedDB -</h3>
+<h3 align="center">- Authenticate -</h3>
 <br>
 
 <p align="center">
-<img src="https://i.imgur.com/9K9NGR7.gif" title="source: imgur.com" alt="IndexedDB"/>
+<img src="https://i.imgur.com/Y3cRReB.gif" title="source: imgur.com" alt="Authenticate-SignUp"/>
+</p><br><hr>
+
+<p align="center">
+<img src="https://i.imgur.com/LBo7pqw.gif" title="source: imgur.com" alt="Authenticate-Login"/>
 </p><br>
 
 
 
 ```
-IndexedDB immediately creats a database storage when open the text editor
+User could Sign up and Login ,and will display different path to Logout and Order History if Logged in/after Signed up.
 ```
 <hr>
 
+<br>
+<h3 align="center">- Category Display -</h3>
+<br>
+
 <p align="center">
-<img src="https://i.imgur.com/BC140nH.gif" title="source: imgur.com" alt="IndexedDB"/>
+<img src="https://i.imgur.com/BC140nH.gif" title="source: imgur.com" alt="Category Display"/>
 </p><br>
 
 ```
-WHEN I enter content and subsequently click off of the DOM window
-THEN I find that the content in the text editor has been saved with IndexedDB
-
-WHEN I reopen the text editor after closing it
-THEN I find that the content in the text editor has been retrieved from our IndexedDB
+Display with the asociate products when user click on categories. 
 ```
 
 <hr>
@@ -115,6 +119,10 @@ THEN I download my web application as an icon on my desktop
 <h3 align="center">Future scope</h3><br>
 
 - Better HTML layout 
+  
+- Add a button display all categories
+
+
 
 - Some minor bugs fix
 
