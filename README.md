@@ -80,26 +80,27 @@ User could Sign up and Login ,and will display different path to Logout and Orde
 <br>
 
 <p align="center">
-<img src="https://i.imgur.com/BC140nH.gif" title="source: imgur.com" alt="Category Display"/>
+<img src="https://i.imgur.com/FxFNnZr.gif" title="source: imgur.com" alt="Category Display"/>
 </p><br>
 
 ```
-Display with the asociate products when user click on categories. 
+Display with the asociated products 
+WHEN user click on brand buttons. 
 ```
 
 <hr>
 <hr>
 <br>
-<h3 align="center">- Download & Run Offline-</h3>
+<h3 align="center">- Single Product Page-</h3>
 <br>
 
 <p align="center">
-<img src="https://i.imgur.com/VyyISi3.gif" title="source: imgur.com" alt="Download & Run Offline"/>
+<img src="https://i.imgur.com/VyyISi3.gif" title="source: imgur.com" alt="Single Product Page"/>
 </p><br>
 
 ```
-WHEN I click on the Install button
-THEN I download my web application as an icon on my desktop
+Lead to single page for product details
+WHEN click on the product buttons
 ```
 
 
