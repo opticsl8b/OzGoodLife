@@ -12,7 +12,7 @@
 <p align="center">
 
 ```
-This is a MERN stack project that features on online store that allows a user to save items to their cart, checkout, and view all item descriptions. The whole site functions whether they have an internet connection or not.
+This is a MERN stack project that features on online store that allows a user to save items to their cart, checkout, and view all item descriptions. 
 ```
 
 </p>
@@ -91,7 +91,7 @@ WHEN user click on brand buttons.
 <hr>
 <hr>
 <br>
-<h3 align="center">- Single Product Page-</h3>
+<h3 align="center">- Single Product Page -</h3>
 <br>
 
 <p align="center">
@@ -102,19 +102,53 @@ WHEN user click on brand buttons.
 Lead to single page for product details
 WHEN click on the product buttons
 ```
-
-
-
-
-<br>
-<h3 align="center">- Application Demo -</h3>
-<br>
-
-<a align="center" href="https://note-taker-opticsl8b.herokuapp.com/" target="_blank">Application-Demo</a>
-
-
-<br>
 <hr>
+<hr>
+<br>
+<h3 align="center">- Shopping Cart I-</h3>
+<br>
+
+<p align="center">
+<img src="https://i.imgur.com/K1Jv97f.gif" title="source: imgur.com" alt="Shopping Cart I"/>
+</p><br>
+
+```
+Cart will pop up 
+WHEN adding product
+
+And provide input area to adjust amount
+Also display the sum price of everything in the cart
+```
+<hr>
+<hr>
+<br>
+<h3 align="center">- Shopping Cart II-</h3>
+<br>
+
+<p align="center">
+<img src="" title="source: imgur.com" alt="Shopping Cart II"/>
+</p><br>
+
+```
+User could remove the unwanted product via the bin button 
+WHEN click on CHECKOUT
+
+User will be leaded to the stripe test system for checkout and displayed with thank message and redirect back to the homepage.
+```
+<hr>
+<hr>
+<br>
+<h3 align="center">- Order History-</h3>
+<br>
+
+<p align="center">
+<img src="" title="source: imgur.com" alt="Order History"/>
+</p><br>
+
+```
+User logged in can review order history  
+WHEN click on Order History button
+```
 <hr>
 
 <h3 align="center">Future scope</h3><br>
@@ -123,7 +157,7 @@ WHEN click on the product buttons
   
 - Add a button display all categories
 
-
+- Optimize Cart layout
 
 - Some minor bugs fix
 
@@ -134,14 +168,14 @@ WHEN click on the product buttons
 <br>
 
 ```
-https://github.com/opticsl8b/Text-Editor
+https://github.com/opticsl8b/Project-III
 ```
 
 <br><hr>
 <hr>
-<h3 align="center">App Heroku Link</h3>
+<h3 align="center">App Link -Heroku</h3>
 <br>
 
 ```
-https://text-editor-gch.herokuapp.com/
+https://oz-good-life.herokuapp.com
 ```
