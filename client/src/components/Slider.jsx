@@ -6,7 +6,7 @@ import { mobile } from "../utils/responsive";
 
 const Container = styled.div`
   widows: 100%;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   /* background-color: coral; */
   position: relative;
@@ -73,13 +73,44 @@ const Desc = styled.p`
   font-weight: 500;
   letter-spacing: 3px;
 `;
+const ButtonContainer = styled.div``;
 
 const Button = styled.a`
-  border: 1px solid gray;
-  padding: 10px;
-  font-size: 20px;
-  background-color: transparent;
+  text-decoration: none;
+  width: 240px;
+  border: 1px solid teal;
+  border-radius: 8px;
+  background: none;
+  padding: 10px 20px;
+  font-size: 32px;
   cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+
+  &:hover {
+    color: teal;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: teal;
+    z-index: -1;
+    transition: 1.5s;
+    bottom: 0;
+    border-radius: 0 0 0 0;
+    height: 100%;
+  }
+
+  &:hover::before {
+    height: 0%;
+  }
 `;
 
 const Slider = () => {
@@ -110,7 +141,9 @@ const Slider = () => {
             <InfoContainer>
               <Title>{slideData.title}</Title>
               <Desc>{slideData.desc}</Desc>
-              <Button href="#category">Shop Now</Button>
+              <ButtonContainer>
+                <Button href="#category">Shop Now</Button>
+              </ButtonContainer>
             </InfoContainer>
           </Slide>
         ))}

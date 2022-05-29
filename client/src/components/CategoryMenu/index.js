@@ -47,8 +47,10 @@ function CategoryMenu() {
   const Container = styled.div`
     flex: 1;
     margin: 3px;
-    height: 30vh;
+    height: 20vh;
     position: relative;
+    align-self: center;
+    margin-left: 4%;
   `;
 
   const Image = styled.img`
@@ -62,22 +64,48 @@ function CategoryMenu() {
 
   const Title = styled.h3`
     font-size: 40px;
-    color: black;
+    color: teal;
     margin-bottom: 20px;
+    margin-left: 1%;
   `;
 
   const Button = styled.button`
-    border: 1.5px solid gray;
-    padding: 10px;
+    border: 1px solid teal;
+    border-radius: 4px;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
     cursor: pointer;
-    background-color: Gray;
-    color: White;
-    font-weight: 600;
+    margin: 10px;
+    transition: 1.5s;
+    position: relative;
+    overflow: hidden;
+    color: teal;
+
+    &:hover {
+      color: white;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: teal;
+      z-index: -1;
+      transition: 0.8s;
+      top: 0;
+      border-radius: 0 0 50% 50%;
+    }
+    &:hover::before {
+      height: 180%;
+    }
   `;
 
   return (
     <Container id="category">
-      <Title>TBD-Have picture as button background</Title>
+      <Title>Our Brands</Title>
       {categories.map((item) => (
         <Button
           key={item._id}

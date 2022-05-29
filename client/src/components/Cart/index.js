@@ -20,7 +20,7 @@ const CartClosed = styled.div`
   right: 3%;
   font-size: 40px;
   cursor: pointer;
-  background-color: whitesmoke;
+  background-color: none;
   border-radius: 50%;
   padding: 10px;
   width: 50px;
@@ -33,7 +33,7 @@ const CartClosed = styled.div`
 `;
 
 const CartIcon = styled.div`
-  background-color: white;
+  /* background-color: white; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -51,7 +51,7 @@ const Container = styled.div`
   padding: 4px;
   box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.5);
   border-top-left-radius: 8px;
-  z-index: 3;
+  z-index: 20;
 `;
 
 const Close = styled.div`
@@ -67,7 +67,7 @@ const Close = styled.div`
   }
 `;
 
-const Title = styled.h2`
+const Title = styled.p`
   font-size: 24px;
   border-bottom: 2px solid gray;
   padding-bottom: 8px;
@@ -79,21 +79,52 @@ const CartDetail = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-top: 2px solid gray; ;
+  border-top: 2px solid gray;
+  align-items: center;
 `;
 
 const CartSum = styled.strong`
   font-size: 24px;
-  margin: 12px 12px 0 12px;
+  margin-left: 20px;
 `;
 
 const Button = styled.button`
-  border: 1.5px solid gray;
-  padding: 10px;
+  border: 1px solid teal;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 8px;
+
   cursor: pointer;
-  background-color: Gray;
-  color: White;
-  font-weight: 600;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  &:hover {
+    color: teal;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: teal;
+    z-index: -1;
+    transition: 0.8s;
+
+    top: 0;
+    border-radius: 0 0 50% 50%;
+    height: 180%;
+  }
+  &:hover::before {
+    height: 0%;
+  }
+`;
+
+const EmptyText = styled.p`
+  font-size: 20px;
 `;
 
 const Cart = () => {
@@ -147,7 +178,7 @@ const Cart = () => {
 
   if (!state.cartOpen) {
     return (
-      <CartClosed className="cart-closed" onClick={toggleCart}>
+      <CartClosed onClick={toggleCart}>
         <CartIcon>
           <AddShoppingCart
             style={{
@@ -196,12 +227,9 @@ const Cart = () => {
           </CartDetail>
         </div>
       ) : (
-        <h3>
-          <span role="img" aria-label="shocked">
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+        <EmptyText>
+          🤷‍♀️🤷‍♂️ You haven't added anything to your cart yet!🤷‍♀️🤷‍♂
+        </EmptyText>
       )}
     </Container>
   );
