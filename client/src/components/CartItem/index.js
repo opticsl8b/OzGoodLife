@@ -21,6 +21,7 @@ const Image = styled.img`
 const NameItem = styled.h3`
   font-size: 16px;
   padding-top: 8px;
+  color: teal;
 `;
 
 const PriceItem = styled.p`
@@ -128,6 +129,7 @@ const CartItem = ({ item }) => {
                 flex: "1",
                 fontSize: "30px",
                 color: "teal",
+                cursor: "pointer",
               }}
             />
           </QtyItem>
