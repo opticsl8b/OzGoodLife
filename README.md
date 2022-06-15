@@ -12,7 +12,7 @@
 <p align="center">
 
 ```
-This is a MERN stack project that features on online ecommerse application which allows a user to save items to their cart, checkout, and view all item descriptions. 
+A MERN stack project that features on online ecommerse application which allows a user to save items to their cart, checkout, and view all item descriptions. 
 ```
 
 </p>
